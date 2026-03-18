@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gn-math | General Mathematics</title>
+    <style>
+        :root {
+            --primary: #fb2651;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --radius: 12px;
+            --gradient: linear-gradient(135deg, #fb2651 0%, #7c3aed 100%);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        header {
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(12px);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        .search-container { flex-grow: 1; max-width: 500px; margin: 0 20px; }
+        input { width: 100%; background: var(--bg-card); border: 1px solid rgba(255,255,255,0.1); color: white; padding: 0.6rem; border-radius: 8px; outline: none; transition: 0.2s; }
+        input:focus { border-color: var(--primary); box-shadow: 0 0 0 2px rgba(251, 38, 81, 0.2); }
+
+        .zone-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .zone-item {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: 0.3s;
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .zone-item:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .zone-item img { width: 100%; aspect-ratio: 16/9; object-fit: cover; background: #000; }
+        .zone-item button { width: 100%; background: none; border: none; color: white; padding: 1rem; font-weight: 600; cursor: pointer; text-align: center; }
+
+        #zoneViewer { position: fixed; inset: 0; background: var(--bg-dark); z-index: 1000; display: none; flex-direction: column; }
+        .zone-header { height: 60px; background: var(--bg-card); display: flex; align-items: center; justify-content: space-between; padding: 0 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        iframe { width: 100%; flex-grow: 1; border: none; background: #000; }
+
+        .popup-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8
